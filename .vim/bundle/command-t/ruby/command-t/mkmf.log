@@ -1,0 +1,10 @@
+have_header: checking for ruby.h... -------------------- yes
+
+"/usr/bin/gcc -E -I. -I/opt/vagrant_ruby/lib/ruby/1.8/x86_64-linux -I. -I'/opt/vagrant_ruby/include'   -I'/opt/vagrant_ruby/include'  -g -O2    conftest.c -o conftest.i"
+checked program was:
+/* begin */
+1: #include <ruby.h>
+/* end */
+
+--------------------
+
