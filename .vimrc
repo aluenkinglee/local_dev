@@ -10,7 +10,7 @@ set laststatus=2            "总是显示状态行
 set expandtab               "以下三个配置配合使用，设置tab和缩进空格数
 set shiftwidth=4
 set tabstop=4
-set cursorline              "为光标所在行加下划线
+"set cursorline              "为光标所在行加下划线
 set number                  "显示行号
 set autoread                "文件在Vim之外修改过，自动重新读入
 
@@ -32,26 +32,67 @@ nnoremap <leader>t : tabe<CR>
 "powerline{
 set guifont=PowerlineSymbols\ for\ Powerline
 set nocompatible
+set laststatus=2
 set t_Co=256
 let g:Powerline_symbols = 'fancy'
+let Powerline_symbols='compatible'
 "}
+
+"config for airline { 
+"状态栏的配置
+"vim-airline {
+"let g:airline_powerline_fonts = 1
+"let g:airline_enable_branch=1
+"let g:airline_enable_syntastic=1
+"let g:airline_detect_paste=1
+"let g:airline_theme='solarized'
+"}
+
 "pathogen是Vim用来管理插件的插件
 "pathogen{
+filetype off
+
 call pathogen#infect()
+call pathogen#helptags()
+
+filetype plugin  indent on
+syntax on
+"}
+
+"python config{
+" Disable pylint checking every save
+"let g:pymode_lint_write = 0
+
+" Set key 'R' for run python code
+"let g:pymode_run_key = 'R'
+
+" Load the whole plugin
+"let g:pymode = 1
+
+" Load show documentation plugin
+"let g:pymode_doc = 1
+
+" Key for show python documentation
+"let g:pymode_doc_key = 'K'
+
+" Load run code plugin
+"let g:pymode_run = 1
+
+" Key for run python code
+"let g:pymode_run_key = '<leader>r'
+
 "}
 
 "}}
 
-call pathogen#infect()
+"map config{{
 
 "autocmd vimenter * NERDTree
-"open NERDTree with Ctrl+n 
+"open NERDTree with Ctrl+n {
 map <C-n> :NERDTreeToggle<CR>
-
-"设置powerline状态栏主题
-"powerline{
-set guifont=PowerlineSymbols\ for\ Powerline
-set nocompatible
-set t_Co=256
-let g:Powerline_symbols = 'fancy'
 "}
+
+"run python file with F2{
+map <F2> <Esc>:w<CR>:!python %<CR>
+"}
+
